@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segunda practica del curso</title>
+</head>
+<body>
+    <form method="post" action="destination.html">
+        <p>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" />
+        </p>
+        <p>
+            <label for="provincia">Provincia</label>
+            <select name="provincia" >
+                <option value="T">Toledo</option>
+                <option>Madrid</option>
+                <option>Zaragoza</option>    
+            </select>
+        </p>
+        <p>
+            <textarea cols="10" rows="10">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Saepe enim nam voluptate accusantium officiis ipsa, rerum illum inventore error, 
+                soluta, sapiente non minima esse ratione eos! Inventore maiores voluptates cum?
+            </textarea>
+        </p>
+        <p>
+            <button type="button">button</button>
+            <button type="reset">reset</button>
+            <button type="submit">submit</button>
+            <button disabled="disabled">disabled</button>
+        </p>
+        <p>
+            <label for="genero">Genero:</label>
+            <input type="radio" name="genero" value="hombre" checked> Hombre
+            <input type="radio" name="genero" value="mujer"> Mujer
+        </p>
+
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" placeholder="Introduzca Nombre" required/>
+            </p>
+            <p>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos" value="Pérez" readonly/>
+            </p>
+            <p>
+                <label for="provincia">Provincia</label>
+                    <select name="provincia" disabled>
+                        <option value="T">Toledo</option>
+                        <option>Madrid</option>
+                        <option>Zaragoza</option>    
+                    </select>
+            </p>
+        </fieldset>
+
+    </form>
+</body>
+</html>
