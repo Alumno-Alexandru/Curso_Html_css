@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            border: 2px solid #000;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        .verde {
+            background-color: #90EE90;
+        }
+        .celeste {
+            background-color: #ADD8E6;
+        }
+        .morado {
+            background-color: #DDA0DD;
+        }
+        button {
+            padding: 8px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <table class="verde">
+                <tr>
+                    <td>Apellidos: </td>
+                    <td><input type="text" name="apellidos" placeholder="Insertar apellidos"></td>
+                    <td>Nombre: </td>
+                    <td><input type="text" name="nombre" placeholder="Insertar nombre"></td>
+                    <td>Email: </td>
+                    <td><input type="email" name="email" placeholder="Inserte su correo"></td>
+                </tr>
+                <tr>
+                    <td>Teléfono: </td>
+                    <td><input type="text" name="telefono" placeholder="Numero de contacto"></td>
+                    <td>DNI: </td>
+                    <td><input type="text" name="dni" placeholder="Numero de documentacion"></td>
+                    <td>Fecha de Nacimiento: </td>
+                    <td><input type="date" name="fecha_nacimiento"></td>
+                </tr>
+                <tr>
+                    <td>Provincia</td>
+                    <td>
+                        <select name="provincia">
+                            <option value="">-- Selecciona --</option>
+                            <option value="madrid">Madrid</option>
+                            <option value="barcelona">Barcelona</option>
+                            <option value="valencia">Valencia</option>
+                            <option value="sevilla">Sevilla</option>
+                        </select>
+                    </td>
+                    <td>Genero</td>
+                    <td>
+                        <input type="radio" name="genero" value="masculino" id="masculino">
+                        <label for="masculino">Hombre</label>
+                        <input type="radio" name="genero" value="femenina" id="femenina">
+                        <label for="femenina">Mujer</label>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Dispositivos Preferido: </td>
+                    <td>
+                        <input type="checkbox" name="pc" id="pc">
+                        <label for="pc">PC</label>
+                        <input type="checkbox" name="tableta" id="tableta">
+                        <label for="tableta">Tablet</label>
+                        <input type="checkbox" name="movil" id="movil">
+                        <label for="movil">Movil</label>
+                    </td>
+                    <td>IDE Preferido: </td>
+                    <td colspan="3"><input type="text" name="ide"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Otros datos de interes</legend>
+            <table class="celeste">
+                <tr>
+                    <td>
+                        <textarea name="otros_datos" placeholder="Indica caulquier otra informacion que consideres relevante"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Competencias de Programacion:</legend>
+            <table class="morado">
+                <tr>
+                    <td style="width: 50%;">
+                        <label for="java">Nivel de java: </label>
+                        <input type="range" name="java" id="jave" min="0" max="100" value="20"> 
+                    </td>
+                    <td style="width: 50%;">
+                        <label for="python">Nivel de python</label>
+                        <input type="range" name="python" id="jave" min="0" max="100" value="20"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;">
+                        <label for="html">Nivel de HTML: </label>
+                        <input type="range" name="html" id="jave" min="0" max="100" value="20"> 
+                    </td>
+                    <td style="width: 50%;">
+                        <label for="css">Nivel de css</label>
+                        <input type="range" name="css" id="jave" min="0" max="100" value="20"> 
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+            <button type="submit">Activado</button>
+            <button type="reset">Borrar Datos</button>
+            <button type="button">Enviar Solicitud</button>
+            <button type="button" disabled>Desactivado</button>
+    </form>
+</body>
+</html>
