@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon.png" type="image/png">
+    <title>Demostración de Maquetacion CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- POSITION: fixed -->
+    <header>
+        <h1><i>Demostracion Completa de Maquetacion CSS</i></h1>
+    </header>
+
+    <!-- POSITION: sticky -->
+    <nav>
+        <a href="#display">Display</a>
+        <a href="#layouts">Layouts</a>
+        <a href="#position">Position</a>
+        <a href="#centrado">Centrado</a>
+        <a href="#flotantes">Flotantes</a>
+        <a href="#columnas">Columnas</a>
+        <a href="#boxsizing">Box-Sizing</a>
+    </nav>
+
+    <!-- LAYOUT: fluid -->
+    <div class="container-fluid">
+        <h2><i>0. Layout Fluid (100% ancho)</i></h2>
+        <p>Este contenedor ocupa todo el ancho disponible del viewport.</p>
+    </div>
+
+    <!-- LAYOUT: fixed -->
+    <div class="container-fixed">
+        <section id="display" class="section">
+            <h2><i>1. DISPLAY: inline, inline-block, block</i></h2>
+            <div class="display-examples">
+                <span class="inline label-primary">inline</span>
+                <span class="inline label-primary">inline</span>
+                <span class="inline label-primary">inline</span>
+                <br><br>
+                <span class="inline-block label-success">inline-block (160px x 60px)</span>
+                <span class="inline-block label-success">inline-block (160px x 60px)</span>
+                <br><br>
+                <span class="block label-danger">block (ocupa todo el ancho)</span>
+                <span class="block label-danger">block (ocupa todo el ancho)</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- LAYOUT: elastic -->
+    <div class="container-elastic">
+        <section id="layouts" class="section">
+            <h2><i>2. LAYOUTS</i></h2>
+            <p><span class="label label-info">Este contenedor es ELASTIC</span> - Usa 60em de ancho</p>
+            <p><span class="label label-warning">El contenedor padre es FIXED</span> - 960px de ancho</p>
+            <p><span class="label label-success">El contenedor azul es FLUID</span> - 100% de ancho</p>
+            <p><span class="label label-danger">Mas abajo hay un HIBRIDO</span> - 80% con max-width de 1200px</p>
+        </section>
+    </div>
+
+    <!-- LAYOUT: híbrido -->
+    <div class="container-hybrid">
+        <section id="position" class="section">
+            <h2><i>3. POSITION: static, relative, absolute, fixed, sticky</i></h2>
+            
+            <div class="position-static">
+                <strong>static:</strong> Posicion por defecto, flujo normal del documento
+            </div>
+            
+            <div class="position-relative">
+                <strong>relative:</strong> Desplazado 30px a la derecha y 10px abajo desde su posicion original
+            </div>
+            
+            <div class="position-container">
+                <p style="padding: 1rem;"><strong>Contenedor con position: relative</strong></p>
+                <div class="position-absolute">
+                    absolute: Posicionado en la esquina inferior derecha
+                </div>
+            </div>
+            
+            <p><span class="label label-primary">fixed:</span> El header esta fijo en la parte superior</p>
+            <p><span class="label label-success">sticky:</span> El menu de navegación es sticky (se pega al scroll)</p>
+        </section>
+
+        <section id="centrado" class="section">
+            <h2><i>4. CENTRADO</i></h2>
+            
+            <div style="background: #f8f9fa; padding: 1rem; margin: 1rem 0;">
+                <p style="text-align: center;"><strong>Centrado horizontal inline:</strong> texto centrado con text-align</p>
+            </div>
+            
+            <div class="center-horizontal-block">
+                <strong>Centrado horizontal de bloque:</strong> usando margin: 0 auto
+            </div>
+            
+            <div class="center-vertical-inline">
+                <strong>Centrado vertical inline:</strong> usando line-height igual al height
+            </div>
+            
+            <div class="center-vertical-block-container">
+                <div class="center-vertical-block">
+                    <strong>Centrado vertical de bloque:</strong><br>
+                    position absolute + transform translate(-50%, -50%)
+                </div>
+            </div>
+        </section>
+
+        <section id="flotantes" class="section">
+            <h2><i>5. FLOTANTES: float left, float right, clear both, clearfix</i></h2>
+            
+            <div class="float-container clearfix">
+                <div class="float-left">
+                    <strong>float: left</strong><br>
+                    Este elemento flota a la izquierda ocupando el 45% del ancho
+                </div>
+                
+                <div class="float-right">
+                    <strong>float: right</strong><br>
+                    Este elemento flota a la derecha ocupando el 45% del ancho
+                </div>
+                
+                <div class="clear-both">
+                    <strong>clear: both</strong> - Este elemento limpia los flotantes anteriores y aparece debajo
+                </div>
+            </div>
+            
+            <p style="margin-top: 1rem;"><span class="label label-info">clearfix hack:</span> El contenedor gris usa ::after con clear: both para contener los flotantes</p>
+        </section>
+
+        <section id="columnas" class="section">
+            <h2><i>6. COLUMNAS: column-count, column-gap, column-rule</i></h2>
+            
+            <div class="columns-text">
+                <strong>Texto en 3 columnas con separacion y regla visual:</strong>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+                in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus 
+                error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo 
+                inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            </div>
+            
+            <p style="margin-top: 1rem;">
+                <span class="label label-primary">column-count: 3</span>
+                <span class="label label-success">column-gap: 2rem</span>
+                <span class="label label-info">column-rule: 3px solid #3498db</span>
+            </p>
+        </section>
+
+        <section id="boxsizing" class="section">
+            <h2><i>7. BOX-SIZING: content-box vs border-box</i></h2>
+            
+            <div class="box-sizing-demo">
+                <div class="box-content">
+                    <strong>content-box</strong><br>
+                    width: 200px<br>
+                    + padding: 20px<br>
+                    + border: 5px<br>
+                    = 250px total
+                </div>
+                
+                <div class="box-border">
+                    <strong>border-box</strong><br>
+                    width: 200px<br>
+                    (incluye padding y border)<br>
+                    = 200px total
+                </div>
+            </div>
+            
+            <p><span class="label label-warning">Recomendacion:</span> Usar box-sizing: border-box globalmente facilita los calculos de layout</p>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Todos los conceptos de maquetación CSS aplicados en una sola pagina</strong></p>
+        <p>Display - Layouts - Position - Centrado - Flotantes - Columnas - Box-Sizing</p>
+    </footer>
+</body>
+</html>

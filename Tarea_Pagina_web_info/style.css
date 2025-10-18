@@ -1,0 +1,307 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* BOX-SIZING: border-box aplicado globalmente */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* POSITION: fixed - Header fijo */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #0082d3;
+            color: white;
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* CENTRADO: horizontal inline */
+        header h1 {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        /* POSITION: sticky - Menú pegajoso */
+        nav {
+            position: sticky;
+            top: 60px;
+            background: #004b96;
+            padding: 1.2rem;
+            margin-top: 60px;
+        }
+
+        /* DISPLAY: inline-block */
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 12 0.2rem;
+            background: #3498db;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            text-align: center;
+            background: #2980b9;
+        }
+
+        /* LAYOUT: fluid - Contenedor principal fluido */
+        .container-fluid {
+            text-align: center;
+            width: 100%;
+            padding: 2rem;
+            background: #ecf0f1;
+        }
+
+        /* LAYOUT: fixed - Contenedor de ancho fijo */
+        .container-fixed {
+            width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* LAYOUT: elastic - Contenedor elástico con em */
+        .container-elastic {
+            width: 60em;
+            max-width: 100%;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+        }
+
+        /* LAYOUT: híbrido - Combina porcentajes y píxeles */
+        .container-hybrid {
+            width: 80%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+        }
+
+        /* Sección de ejemplos */
+        .section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgb(255, 255, 255);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        /* DISPLAY: inline, inline-block, block */
+        .display-examples span {
+            background: #3498db;
+            color: white;
+            padding: 0.5rem;
+            margin: 0.2rem;
+        }
+
+        .inline {
+            display: inline; /* No respeta width/height */
+        }
+
+        .inline-block {
+            text-align: center;
+            display: inline-block; /* Respeta width/height */
+            width: 160px;
+            height: 60px;
+        }
+
+        .block {
+            display: block; /* Ocupa todo el ancho */
+            margin: 0.5rem 0;
+        }
+
+        /* FLOTANTES: float left y right */
+        .float-container {
+            background: #f8f9fa;
+            padding: 1rem;
+            border: 2px dashed #6c757d;
+        }
+
+        /* Clearfix hack */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .float-left {
+            float: left;
+            width: 45%;
+            background: #28a745;
+            color: white;
+            padding: 1rem;
+            margin: 0.5rem;
+        }
+
+        .float-right {
+            float: right;
+            width: 45%;
+            background: #dc3545;
+            color: white;
+            padding: 1rem;
+            margin: 0.5rem;
+        }
+
+        .clear-both {
+            clear: both;
+            background: #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* COLUMNAS: column-count, column-gap, column-rule */
+        .columns-text {
+            column-count: 3;
+            column-gap: 2rem;
+            column-rule: 3px solid #3498db;
+            text-align: justify;
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+
+        /* CENTRADO: horizontal de bloque */
+        .center-horizontal-block {
+            width: 300px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #17a2b8;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* CENTRADO: vertical inline */
+        .center-vertical-inline {
+            height: 100px;
+            line-height: 100px;
+            background: #6f42c1;
+            color: white;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        /* CENTRADO: vertical de bloque usando position */
+        .center-vertical-block-container {
+            position: relative;
+            height: 200px;
+            background: #fd7e14;
+            margin: 1rem 0;
+        }
+
+        .center-vertical-block {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* POSITION: static (por defecto) */
+        .position-static {
+            position: static;
+            background: #e9ecef;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        /* POSITION: relative */
+        .position-relative {
+            position: relative;
+            background: #d1ecf1;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            left: 30px;
+            top: 10px;
+        }
+
+        /* POSITION: absolute */
+        .position-container {
+            position: relative;
+            height: 150px;
+            background: #f8d7da;
+            margin: 1rem 0;
+        }
+
+        .position-absolute {
+            position: absolute;
+            background: #721c24;
+            color: white;
+            padding: 0.5rem 1rem;
+            right: 20px;
+            bottom: 20px;
+            border-radius: 4px;
+        }
+
+        /* BOX-SIZING demostración */
+        .box-sizing-demo {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .box-content {
+            width: 200px;
+            padding: 20px;
+            border: 5px solid #3498db;
+            background: #e8f4f8;
+            box-sizing: content-box; /* width no incluye padding ni border */
+        }
+
+        .box-border {
+            width: 200px;
+            padding: 20px;
+            border: 5px solid #e74c3c;
+            background: #fadbd8;
+            box-sizing: border-box; /* width incluye padding y border */
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Etiquetas de ejemplo */
+        .label {
+            display: inline-block;
+            background: #6c757d;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            margin: 0.2rem;
+        }
+
+        .label-primary { background: #007bff; }
+        .label-success { background: #28a745; }
+        .label-danger { background: #dc3545; }
+        .label-warning { background: #ffc107; color: #333; }
+        .label-info { background: #17a2b8; }
