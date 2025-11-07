@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8316/8316931.png">
+    <title>GameStore - Ofertas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/007/169/470/non_2x/abstract-dark-background-with-blue-neon-glowing-vector.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #0f3460;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.2em;
+        }
+
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .filter-btn:hover {
+            background: rgba(0, 212, 255, 0.3);
+            border-color: #00d4ff;
+        }
+
+        .filter-btn.active {
+            background: #00d4ff;
+            color: #1a1a2e;
+        }
+
+        /* === NAVBAR GENERAL === */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 20, 0.85);
+            /* Oscuro con leve transparencia */
+            backdrop-filter: blur(8px);
+            /* Efecto vidrio */
+            padding: 15px 40px;
+            border-bottom: 1px solid rgba(0, 150, 255, 0.3);
+            /* Línea azul tenue */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* === MENÚ DE ENLACES === */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            color: #dbe4ff;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff;
+        }
+
+        /* === HERRAMIENTAS === */
+        .nav-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* === BUSCADOR === */
+        .search {
+            display: flex;
+            align-items: center;
+            background-color: #1a1b1f;
+            border-radius: 30px;
+            padding: 8px 15px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search:hover {
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+        }
+
+        .search-icon {
+            margin-right: 10px;
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #dbe4ff;
+            font-size: 0.95rem;
+            width: 160px;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* === ICONOS === */
+        .icon img {
+            transition: transform 0.3s, filter 0.3s;
+            filter: drop-shadow(0 0 2px #00aaff60);
+        }
+
+        .icon img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px #00aaff);
+        }
+
+        /* ===== MAIN =====*/
+
+        .main {
+            max-width: 1400px;
+            margin: auto auto;
+            padding: 40px 40px;
+        }
+
+        .juegos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .juego-card {
+            background-color: rgba(20, 20, 25, 0.9);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .juego-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+        }
+
+        .juego-imagen {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .juego-info {
+            padding: 15px;
+        }
+
+        .juego-etiqueta {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .juego-titulo {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .juego-precios {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .precio-anterior {
+            color: #888;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+
+        .precio-actual {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .descuento-badge {
+            background-color: #00bcd4;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+        }
+
+        @media (max-width: 900px) {
+
+            /* Navegación en 2 filas */
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 20px;
+            }
+
+            /* Primera fila: Menú a la izquierda + Herramientas a la derecha */
+            .nav-menu {
+                order: 1;
+                flex-direction: row;
+                gap: 15px;
+                justify-content: flex-start;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .nav-menu::-webkit-scrollbar {
+                height: 3px;
+            }
+
+            .nav-menu::-webkit-scrollbar-thumb {
+                background: #00ffff;
+                border-radius: 10px;
+            }
+
+            .nav-menu a {
+                white-space: nowrap;
+                font-size: 0.9em;
+            }
+
+            /* Segunda fila: Buscador + Iconos */
+            .nav-tools {
+                order: 2;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                gap: 10px;
+            }
+
+            /* Buscador ocupa espacio disponible */
+            .search {
+                flex-grow: 1;
+                width: auto;
+                min-width: 150px;
+            }
+
+            /* Iconos juntos a la derecha */
+            .icon {
+                flex-shrink: 0;
+            }
+        }
+
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 450px) {
+            .nav {
+                padding: 10px 15px;
+            }
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                font-size: 0.85em;
+            }
+
+            .search {
+                padding: 6px 12px;
+            }
+
+            .search-input {
+                font-size: 11px;
+            }
+
+            .icon img {
+                width: 18px;
+            }
+        }
+
+        /* ===== MAIN ===== */
+
+        /* Responsive para cards */
+        @media (max-width: 1200px) {
+            .juegos-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                padding: 20px 15px;
+            }
+
+            .juegos-container {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 15px;
+            }
+
+            .juego-imagen {
+                height: 220px;
+            }
+
+            .juego-info {
+                padding: 12px;
+            }
+
+            .juego-titulo {
+                font-size: 0.95rem;
+            }
+
+            .precio-actual {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .juegos-container {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 12px;
+            }
+
+            .juego-imagen {
+                height: 190px;
+            }
+
+            .juego-info {
+                padding: 10px;
+            }
+
+            .juego-titulo {
+                font-size: 0.85rem;
+            }
+
+            .juego-etiqueta {
+                font-size: 0.65rem;
+            }
+
+            .precio-actual {
+                font-size: 0.9rem;
+            }
+
+            .precio-anterior {
+                font-size: 0.75rem;
+            }
+
+            .descuento-badge {
+                font-size: 0.65rem;
+                padding: 3px 8px;
+                top: 8px;
+                left: 8px;
+            }
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #7b2cbf, #5a189a);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .buy-button:hover {
+            background: linear-gradient(45deg, #9d4edd, #7b2cbf);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <!-- Menú de navegación -->
+            <ul class="nav-menu">
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/index">Inicio</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/juegos">Juegos</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/consolas">Consolas</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/accesorios">Accesorios</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/biblioteca">Biblioteca</a></li>
+            </ul>
+
+            <!-- Herramientas (Buscador + Iconos) -->
+            <div class="nav-tools">
+                <!-- Buscador -->
+                <div class="search">
+                    <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="Buscar" class="search-icon"
+                        style="filter: brightness(0) invert(1); width: 14px; height: 14px;">
+                    <input type="text" placeholder="Buscar..." class="search-input">
+                </div>
+
+                <!-- Iconos de carrito y usuario -->
+                <a href="#" class="icon" aria-label="Carrito">
+                    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Carrito" width="30">
+                </a>
+
+                <a href="#" class="icon" aria-label="Usuario">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Usuario" width="30">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header>
+            <h1>GameStore</h1>
+            <p class="subtitle">Elige tu juego favorito</p>
+        </header>
+        <div class="filter-section">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">Acción</button>
+            <button class="filter-btn">Aventura</button>
+            <button class="filter-btn">RPG</button>
+            <button class="filter-btn">Deportes</button>
+        </div>
+
+        <!-- Contenido principal -->
+        <main class="main">
+            <div class="juegos-container">
+                <!-- Card 1 -->
+                <div class="juego-card">
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202507/1617/2e757ffb0a6bb4b91af84db64e0183d725e56e5354f45eba.png"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">FIFA 26</h3>
+                        <div class="juego-precios">
+                            <span class="precio-actual">69,99 €</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 2  -->
+                <div class="juego-card">
+                    <span class="descuento-badge">-50 %</span>
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202202/2816/K6mmm89oNII1iI1aqaClO0wh.png"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">Grand Theft Auto V Enhanced</h3>
+                        <div class="juego-precios">
+                            <span class="precio-anterior">29,99 €</span>
+                            <span class="precio-actual">14,99 €</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 3  -->
+                <div class="juego-card">
+                    <img src="https://cdkp.b-cdn.net/images/games/5632752/rocket-league-desktop-logo-all.webp?width=400"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">Rocket League</h3>
+                        <div class="juego-precios">
+                            <span class="precio-actual">GRATIS</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 4  -->
+                <div class="juego-card">
+                    <span class="descuento-badge">-95 %</span>
+                    <img src="https://sm.ign.com/t/ign_es/game/t/the-crew-2/the-crew-2_n78x.1200.jpg"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">The Crew 2</h3>
+                        <div class="juego-precios">
+                            <span class="precio-anterior">29,99 €</span>
+                            <span class="precio-actual">1,50 €</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="juego-card">
+                    <span class="descuento-badge">-65 %</span>
+                    <img src="https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S2_03_1200x1600-b1847981214ac013383111fc457eb9c5"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">Cyberpunk 2077</h3>
+                        <div class="juego-precios">
+                            <span class="precio-anterior">59,99 €</span>
+                            <span class="precio-actual">20,99 €</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 6  -->
+                <div class="juego-card">
+                    <img src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_FiveNightsAtFreddysIntoThePit_image1600w.jpg"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">FIve Nights at Freddy's Into the Pit</h3>
+                        <div class="juego-precios">
+                            <span class="precio-actual">17,99 €</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 7  -->
+                <div class="juego-card">
+                    <img src="https://cdn1.epicgames.com/offer/fn/ES-ES_FNECO_37-40_Fortnitemares_EGS_Launcher_KeyArt_Blade_1200x1600_1200x1600-1bd5d520ed61148ca0571f3bcf165c89"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">Fortnite</h3>
+                        <div class="juego-precios">
+                            <span class="precio-actual">GRATIS</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 8  -->
+                <div class="juego-card">
+                    <span class="descuento-badge">-75 %</span>
+                    <img src="https://image.api.playstation.com/cdn/UP1004/CUSA03041_00/Hpl5MtwQgOVF9vJqlfui6SDB5Jl4oBSq.png"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">Read Dead Redemption 2</h3>
+                        <div class="juego-precios">
+                            <span class="precio-anterior">59,99 €</span>
+                            <span class="precio-actual">14,99 €</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 9  -->
+                <div class="juego-card">
+                    <img src="https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S2_1200x1600-4c5338a8b14b8da8d45bd57298128673"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">Valorant</h3>
+                        <div class="juego-precios">
+                            <span class="precio-actual">GRATIS</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Card 10  -->
+                <div class="juego-card">
+                    <img src="https://cdn1.epicgames.com/spt-assets/496885083a2942a9a3196abde1aae34d/anning-1tq5z.jpg"
+                        class="juego-imagen">
+                    <div class="juego-info">
+                        <p class="juego-etiqueta">Juego base</p>
+                        <h3 class="juego-titulo">Jurassic World Evolution 3</h3>
+                        <div class="juego-precios">
+                            <span class="precio-actual">59,99 €</span>
+                        </div>
+                        <button class="buy-button"> Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

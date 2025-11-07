@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8316/8316931.png">
+    <title>Gamer Pro - Accesorios Gaming</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/007/169/470/non_2x/abstract-dark-background-with-blue-neon-glowing-vector.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* === NAVBAR GENERAL === */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 20, 0.85);
+            /* Oscuro con leve transparencia */
+            backdrop-filter: blur(8px);
+            /* Efecto vidrio */
+            padding: 15px 40px;
+            border-bottom: 1px solid rgba(0, 150, 255, 0.3);
+            /* Línea azul tenue */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* === MENÚ DE ENLACES === */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            color: #dbe4ff;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff;
+        }
+
+        /* === HERRAMIENTAS === */
+        .nav-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* === BUSCADOR === */
+        .search {
+            display: flex;
+            align-items: center;
+            background-color: #1a1b1f;
+            border-radius: 30px;
+            padding: 8px 15px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search:hover {
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+        }
+
+        .search-icon {
+            margin-right: 10px;
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #dbe4ff;
+            font-size: 0.95rem;
+            width: 160px;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* === ICONOS === */
+        .icon img {
+            transition: transform 0.3s, filter 0.3s;
+            filter: drop-shadow(0 0 2px #00aaff60);
+        }
+
+        .icon img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px #00aaff);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 900px) {
+
+            /* Navegación en 2 filas */
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 20px;
+            }
+
+            /* Primera fila: Menú a la izquierda + Herramientas a la derecha */
+            .nav-menu {
+                order: 1;
+                flex-direction: row;
+                gap: 15px;
+                justify-content: flex-start;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .nav-menu::-webkit-scrollbar {
+                height: 3px;
+            }
+
+            .nav-menu::-webkit-scrollbar-thumb {
+                background: #00ffff;
+                border-radius: 10px;
+            }
+
+            .nav-menu a {
+                white-space: nowrap;
+                font-size: 0.9em;
+            }
+
+            /* Segunda fila: Buscador + Iconos */
+            .nav-tools {
+                order: 2;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                gap: 10px;
+            }
+
+            /* Buscador ocupa espacio disponible */
+            .search {
+                flex-grow: 1;
+                width: auto;
+                min-width: 150px;
+            }
+
+            /* Iconos juntos a la derecha */
+            .icon {
+                flex-shrink: 0;
+            }
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(120, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .tagline {
+            color: #00ffff;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Banner promocional */
+        .promo-banner {
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            font-size: 15em;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+            transform: rotate(-20deg);
+        }
+
+        .promo-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0a0e27;
+        }
+
+        .promo-text {
+            font-size: 1.3em;
+            color: #0a0e27;
+            font-weight: bold;
+        }
+
+        /* Categorías */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            border-color: #00ffff;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .category-name {
+            font-size: 1.2em;
+            color: #00ffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Grid de productos */
+        .products-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #00ffff;
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.4);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff00ff, #ff0080);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            z-index: 10;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.5);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid #00ffff;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-brand {
+            color: #ff00ff;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .product-name {
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            color: #fff;
+            min-height: 60px;
+        }
+
+        .product-features {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+
+        .reviews {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .product-price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 2em;
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        .product-old-price {
+            color: #888;
+            text-decoration: line-through;
+            font-size: 1.2em;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00ffff, #00cc99);
+            color: #0a0e27;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #00ffff;
+            border: 2px solid #00ffff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 50px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .newsletter-title {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #00ffff;
+        }
+
+        .newsletter-text {
+            color: #aaa;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid #00ffff;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .newsletter-input::placeholder {
+            color: #666;
+        }
+
+        .newsletter-btn {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #ff00ff, #ff0080);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2em;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <!-- Menú de navegación -->
+            <ul class="nav-menu">
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/index">Inicio</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/juegos">Juegos</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/consolas">Consolas</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/accesorios">Accesorios</a></li>
+                <li><a href="https://sites.google.com/ies-azarquiel.es/almu/biblioteca">Biblioteca</a></li>
+            </ul>
+
+            <!-- Herramientas (Buscador + Iconos) -->
+            <div class="nav-tools">
+                <!-- Buscador -->
+                <div class="search">
+                    <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="Buscar" class="search-icon"
+                        style="filter: brightness(0) invert(1); width: 14px; height: 14px;">
+                    <input type="text" placeholder="Buscar..." class="search-input">
+                </div>
+
+                <!-- Iconos de carrito y usuario -->
+                <a href="#" class="icon" aria-label="Carrito">
+                    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Carrito" width="30">
+                </a>
+
+                <a href="#" class="icon" aria-label="Usuario">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Usuario" width="30">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <br><br><br>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">GAMER PRO</h1>
+            <p class="tagline">Next Level Gaming Experience</p>
+        </header>
+
+        <div class="promo-banner">
+            <h2 class="promo-title">&#128293; MEGA OFERTAS DE TEMPORADA &#128293;</h2>
+            <p class="promo-text">Hasta 60% de descuento en accesorios gaming premium</p>
+        </div>
+
+        <div class="categories">
+            <div class="category-card">
+                <div class="category-icon">&#127911;</div>
+                <div class="category-name">Auriculares</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#9000;</div>
+                <div class="category-name">Teclados</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🖱️</div>
+                <div class="category-name">Ratones</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#127918;</div>
+                <div class="category-name">Controles</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#128250;</div>
+                <div class="category-name">Monitores</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#129681;</div>
+                <div class="category-name">Sillas</div>
+            </div>
+        </div>
+
+        <section class="products-section">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-badge">-45% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1599669454699-248893623440?w=500&h=400&fit=crop"
+                        alt="Auriculares Gaming" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">RAZER</div>
+                        <h3 class="product-name">Razer BlackShark V2 Pro</h3>
+                        <p class="product-features">✓ Audio THX 7.1 • ✓ Inalámbricos • ✓ 70h batería</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(2,847 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€179.99</div>
+                                <div class="product-price">€98.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-badge">-35% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=400&fit=crop"
+                        alt="Teclado Mecánico" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">LOGITECH</div>
+                        <h3 class="product-name">Logitech G915 TKL</h3>
+                        <p class="product-features">✓ Switches GL Tactile • ✓ RGB Lightsync • ✓ Wireless</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(1,932 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€229.99</div>
+                                <div class="product-price">€149.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-badge">-50% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=400&fit=crop"
+                        alt="Ratón Gaming" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">CORSAIR</div>
+                        <h3 class="product-name">Corsair Dark Core RGB Pro</h3>
+                        <p class="product-features">✓ 18,000 DPI • ✓ Inalámbrico • ✓ 8 botones programables</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(1,456 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€159.99</div>
+                                <div class="product-price">€79.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-badge">NUEVO</div>
+                    <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=500&h=400&fit=crop"
+                        alt="Monitor Gaming" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">ASUS</div>
+                        <h3 class="product-name">ASUS ROG Swift 27" 240Hz</h3>
+                        <p class="product-features">✓ 1ms respuesta • ✓ G-Sync • ✓ HDR 2K QHD</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(3,245 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€599.99</div>
+                                <div class="product-price">€449.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5 -->
+                <div class="product-card">
+                    <div class="product-badge">-60% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=500&h=400&fit=crop"
+                        alt="Silla Gaming" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">SECRETLAB</div>
+                        <h3 class="product-name">Secretlab Titan Evo 2022</h3>
+                        <p class="product-features">✓ Cuero PU Premium • ✓ 4D Reposabrazos • ✓ Lumbar magnético</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(5,678 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€499.99</div>
+                                <div class="product-price">€199.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="product-card">
+                    <div class="product-badge">-40% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1605901309584-818e25960a8f?w=500&h=400&fit=crop"
+                        alt="Control Gaming" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">XBOX</div>
+                        <h3 class="product-name">Xbox Elite Controller Series 2</h3>
+                        <p class="product-features">✓ Palancas ajustables • ✓ Batería 40h • ✓ Bluetooth</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(4,123 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€179.99</div>
+                                <div class="product-price">€107.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 7 -->
+                <div class="product-card">
+                    <div class="product-badge">BESTSELLER</div>
+                    <img src="https://www.audiotopia.com/cdn/shop/products/yetix-plupackmain.jpg?v=1758177014"
+                        alt="Micrófono" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">BLUE</div>
+                        <h3 class="product-name">Blue Yeti X Professional</h3>
+                        <p class="product-features">✓ 4 patrones pickup • ✓ Medidor LED • ✓ USB plug & play</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(6,891 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€169.99</div>
+                                <div class="product-price">€129.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 8 -->
+                <div class="product-card">
+                    <div class="product-badge">-55% OFF</div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJDaNOiCpSjg9wCV7Ad-9sAcSVKpSVKOhocg&s"
+                        alt="Webcam" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">LOGITECH</div>
+                        <h3 class="product-name">Logitech StreamCam Plus</h3>
+                        <p class="product-features">✓ 1080p 60fps • ✓ Autofocus • ✓ USB-C Smart</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(2,134 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€169.99</div>
+                                <div class="product-price">€76.49</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 9 -->
+                <div class="product-card">
+                    <div class="product-badge">-30% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=500&h=400&fit=crop"
+                        alt="Alfombrilla" class="product-image">
+                    <div class="product-info">
+                        <div class="product-brand">STEELSERIES</div>
+                        <h3 class="product-name">SteelSeries QcK Prism XL RGB</h3>
+                        <p class="product-features">✓ 900x300mm • ✓ RGB 12 zonas • ✓ Superficie microtextura</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(3,567 reviews)</span>
+                        </div>
+                        <div class="product-price-section">
+                            <div>
+                                <div class="product-old-price">€69.99</div>
+                                <div class="product-price">€48.99</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="btn btn-primary">&#128722; Comprar</button>
+                            <button class="btn btn-secondary">&#9825;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="newsletter">
+            <h2 class="newsletter-title"> &#128293; Únete a la Comunidad Gamer Pro</h2>
+            <p class="newsletter-text">Recibe ofertas exclusivas, lanzamientos y tips gaming directamente en tu email
+            </p>
+            <div class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="tu-email@ejemplo.com">
+                <button class="newsletter-btn">Suscribirse</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
