@@ -1,0 +1,26 @@
+
+//Simple
+sass file.scss output_file.scss
+
+//Multiple
+sass file1.scss:output1.css ... fileN.scss:outputN.css
+
+//Expandida(1selector - 1linea en salida - por defecto)
+sass --style= expanded file.scss output_file.scss
+
+
+// Comprimida (Quita la mayor cantidad de caracteres posibles)
+sass --style = compressed file.scss output_file.scss
+
+//Vigilando los cambios y actualizaciones de ficheros
+sass --watch file.scss output_file.scss
+
+
+4. Compilacion
+--no-source-map
+--stop-on-error
+--embed-source-map
+--help
+--quiet
+--color / --no-color
+--trace
