@@ -23,6 +23,7 @@ nav ul li a {
   text-decoration: none;
 }
 
+/*Funciones prebias*/
 figure.card {
   border: 0.1rem solid #333;
   border-radius: 1rem;

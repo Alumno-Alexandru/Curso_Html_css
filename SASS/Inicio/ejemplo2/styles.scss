@@ -1,0 +1,181 @@
+$ligh-theme: true;
+$dark-theme: true;
+
+// header{
+//     @if $ligh-theme == true{
+//         background-color: #fff;
+//         color: #000;
+//     }@else if $dark-theme{
+//         background-color: #000;
+//         color: #fff;
+//     }@else{
+//         background-color: #aaa;
+//         color: #444;
+//     }
+// }
+
+body{
+    @if $ligh-theme == true{
+        background-color: #fff;
+        color: #000;
+    }@else if $dark-theme{
+        background-color: #000;
+        color: #fff;
+    }@else{
+        background-color: #aaa;
+        color: #444;
+    }
+}
+
+$num:1;
+$color-list:#0f0,#00f,rgb(204, 204,204),orange;
+
+// @while $num < 5 {
+//     td:nth-child(#{$num}){
+//         color: #f00;
+//         background-color: nth($color-list, $num);
+//     }
+//     $num: $num + 1;
+// }
+
+@while $num < 5 {
+    .card:nth-child(#{$num}){
+        color: #f00;
+        background-color: nth($color-list, $num);
+    }
+    $num: $num + 1;
+}
+
+// @for $i from 1 through 4 { 
+// //@for $i from 1 to 4 {
+//     p:nth-of-type(#{$i}){
+//         color: #f00;
+//         background-color: nth($color-list, $i);
+//     }
+// }
+
+@for $i from 1 through 4 { 
+//@for $i from 1 to 4 {
+    li:nth-of-type(#{$i}){
+        color: #f00;
+        background-color: nth($color-list, $i);
+    }
+}
+
+// $usuarios:pepe,lola,manuel;
+
+// @each $u in $usuarios{
+//     .profile-#{$u}{
+//         background: image-url("img/#{$u}.png") no repeat;
+//     }
+// }
+
+// $mapa:(
+//     pepe: "pepe.png",
+//     lola: "lola.png",
+//     manuel: "manuel.png"
+// );
+
+// @each $u, $v in $mapa{
+//     .perfil-#{$u}{
+//         background: image-url("img/#{$v}") no repeat;
+//     }
+// }
+
+// @function anchura-col($cols, $total){
+//     @return percentage($cols/$total);
+// }
+
+// .sidebar{
+//     background-color: #00f;
+//     width: anchura-col(1,10);
+// }
+
+
+
+
+
+
+
+
+
+
+
+/*==============================
+    Parte del anterior codigo
+==============================*/
+
+// colores generales
+$color-background: #ccc;
+$color-baser: #333;
+
+//colores menu
+$navbar-background-color: rgb(155,111,145);
+$navbar-color-hover: $color-background;
+
+//colores del borde
+$border-color: $color-baser;
+$border-style:"solid";
+$border-width: 0.1rem;
+
+//contenido de bordes y margenes
+$border-radius: 1rem;
+$main-container-width:80%;
+$margin: 0px auto;
+$padding: 1rem;
+$padding-2: 0.2rem;
+
+.container{
+    width: $main-container-width;
+    margin: $margin;
+}
+
+nav{
+    background-color: $navbar-background-color;
+    padding: $padding-2;
+    ul{
+        li{
+            display: inline-block;
+            padding-left: $padding;
+            padding-right: $padding;
+
+            &.active{
+                color: $navbar-color-hover;
+                font-weight: bold;
+            }
+
+            &:hover{
+                color: $navbar-color-hover;
+            }
+
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/*Funciones prebias*/
+
+$figure-width: 25%;
+$font-size: 0.8rem;
+$margin-1: 0.5rem;
+$width: 100%;
+
+figure.card{
+    border: $border-width #{$border-style} $border-color;
+    border-radius: $border-radius;
+    display: inline-block;
+    padding: 1rem;
+    width: $figure-width;
+}
+img{
+    border-radius: 2*$border-radius;
+    width: $width;
+}
+
+figcaption{
+    font-size: $font-size;
+    margin: $margin-1;
+    text-align: center;
+}

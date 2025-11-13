@@ -11,23 +11,26 @@ $border-color: $color-baser;
 $border-style:"solid";
 $border-width: 0.1rem;
 
+//contenido de bordes y margenes
 $border-radius: 1rem;
-
 $main-container-width:80%;
+$margin: 0px auto;
+$padding: 1rem;
+$padding-2: 0.2rem;
 
 .container{
     width: $main-container-width;
-    margin: 0px auto;
+    margin: $margin;
 }
 
 nav{
     background-color: $navbar-background-color;
-    padding: 0.2rem;
+    padding: $padding-2;
     ul{
         li{
             display: inline-block;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: $padding;
+            padding-right: $padding;
 
             &.active{
                 color: $navbar-color-hover;
@@ -45,7 +48,12 @@ nav{
     }
 }
 
+/*Funciones prebias*/
+
 $figure-width: 25%;
+$font-size: 0.8rem;
+$margin-1: 0.5rem;
+$width: 100%;
 
 figure.card{
     border: $border-width #{$border-style} $border-color;
@@ -56,11 +64,11 @@ figure.card{
 }
 img{
     border-radius: 2*$border-radius;
-    width: 100%;
+    width: $width;
 }
 
 figcaption{
-    font-size: 0.8rem;
-    margin: 0.5rem;
+    font-size: $font-size;
+    margin: $margin-1;
     text-align: center;
 }

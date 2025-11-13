@@ -1,0 +1,94 @@
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+.card:nth-child(1) {
+  color: #f00;
+  background-color: #0f0;
+}
+
+.card:nth-child(2) {
+  color: #f00;
+  background-color: #00f;
+}
+
+.card:nth-child(3) {
+  color: #f00;
+  background-color: rgb(204, 204, 204);
+}
+
+.card:nth-child(4) {
+  color: #f00;
+  background-color: orange;
+}
+
+li:nth-of-type(1) {
+  color: #f00;
+  background-color: #0f0;
+}
+
+li:nth-of-type(2) {
+  color: #f00;
+  background-color: #00f;
+}
+
+li:nth-of-type(3) {
+  color: #f00;
+  background-color: rgb(204, 204, 204);
+}
+
+li:nth-of-type(4) {
+  color: #f00;
+  background-color: orange;
+}
+
+/*==============================
+    Parte del anterior codigo
+==============================*/
+.container {
+  width: 80%;
+  margin: 0px auto;
+}
+
+nav {
+  background-color: rgb(155, 111, 145);
+  padding: 0.2rem;
+}
+nav ul li {
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+nav ul li.active {
+  color: #ccc;
+  font-weight: bold;
+}
+nav ul li:hover {
+  color: #ccc;
+}
+nav ul li a {
+  text-decoration: none;
+}
+
+/*Funciones prebias*/
+figure.card {
+  border: 0.1rem solid #333;
+  border-radius: 1rem;
+  display: inline-block;
+  padding: 1rem;
+  width: 25%;
+}
+
+img {
+  border-radius: 2rem;
+  width: 100%;
+}
+
+figcaption {
+  font-size: 0.8rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
