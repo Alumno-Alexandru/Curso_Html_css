@@ -1,0 +1,11 @@
+$top_maging: 0px;
+$row_padding: 20px;
+
+.container{
+    width: 80%;
+    margin: $top_maging auto;
+}
+
+.row{
+    padding: $row_padding ;
+}

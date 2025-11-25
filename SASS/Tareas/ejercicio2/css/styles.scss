@@ -1,13 +1,14 @@
+//// Author Alexandru Muntean
 $ligh-theme: true;
 $dark-theme: true;
 
 @use "sass:math";
 @use "sass:list";
 
-// Numeracion
+/// Numeracion
 $num:1;
 
-// colores generales
+/// colores generales
 $color-background: #ccc;
 $color-baser: #333;
 $color-w:white;
@@ -20,15 +21,15 @@ $color-shadow: #888;
 $color-reservado: orange;
 $color-list: #aaa, #00f, orange, rgb(242, 255, 0), #0f0;
 
-//colores menu
+///colores menu
 $navbar-background-color: rgb(155,111,145);
 $navbar-color-hover: $color-background;
 
-//colores del borde
+///colores del borde
 $border-color: $color-baser;
 $border-style:solid;
 
-//contenido de bordes y margenes
+///contenido de bordes y margenes
 $border-radius: 1rem;
 $border-width: 0.1rem;
 $main-container-width:80%;
@@ -38,15 +39,15 @@ $margin-left: 25%;
 $padding: 1rem;
 $padding-2: 0.2rem;
 
-// Tipo de textos
+/// Tipo de textos
 $text-align: center;
 $text-vacio: none;
 
-//tipos de background
+///tipos de background
 $background-repeat: no-repeat ;
 $background-size: contain;
 
-// Extras del ejercicio
+/// Extras del ejercicio
 $figure-width: 39.5%;
 $font-size: 0.8rem;
 $width: 100%;
@@ -54,21 +55,12 @@ $width-2: 50%;
 $display: inline-block;
 $font-weight: bold;
 
-
-// header{
-//     @if $ligh-theme == true{
-//         background-color: #fff;
-//         color: #000;
-//     }@else if $dark-theme{
-//         background-color: #000;
-//         color: #fff;
-//     }@else{
-//         background-color: #aaa;
-//         color: #444;
-//     }
-// }
+@mixin centrado {
+    margin: 0px auto;
+}
 
 body{
+    @include centrado;
     @if $ligh-theme == true{
         background-color: $color-w;
         color: $color-b;
@@ -96,45 +88,6 @@ body{
     }
 }
 
-// @while $num < 5 {
-//     td:nth-child(#{$num}){
-//         color: #f00;
-//         background-color: nth($color-list, $num);
-//     }
-//     $num: $num + 1;
-// }
-
-// @while $num < 6 {
-//     .card:nth-child(#{$num}){
-//         color: #f00;
-//         background-color: nth($color-list, $num);
-//     }
-//     $num: $num + 1;
-// }
-
-// @for $i from 1 through 4 { 
-// //@for $i from 1 to 4 {
-//     p:nth-of-type(#{$i}){
-//         color: #f00;
-//         background-color: nth($color-list, $i);
-//     }
-// }
-
-// // @for $i from 1 through 4 { 
-// @for $i from 1 to 4 {
-//     li:nth-of-type(#{$i}){
-//         color: nth($color-list, $i);
-//     }
-// }
-
-// $banderas:Espana,Francia,Italia,Alemania;
-
-// @each $u in $banderas{
-//     .profile-#{$u}{
-//         background: image-url("img/#{$u}.png") no repeat;
-//     }
-// }
-
 $mapa:(
     Espana:"Espana.png",
     Francia:"Francia.png",
@@ -144,7 +97,7 @@ $mapa:(
 
 @each $u, $v in $mapa{
     div.#{$u}{
-        background-image: url("img/#{$v}");
+        background-image: url("../img/#{$v}");
         background-repeat: $background-repeat ;
         background-size: $background-size;
         padding: 0.9-$padding;
@@ -156,20 +109,6 @@ $mapa:(
         
     }
 }
-
-// @function anchura-col($cols, $total){
-//     @return percentage($cols/$total);
-// }
-
-// .sidebar{
-//     background-color: #00f;
-//     width: anchura-col(1,10);
-// }
-
-
-/*==============================
-    Parte del anterior codigo
-==============================*/
 
 .container{
     width: $main-container-width;
@@ -230,23 +169,23 @@ $btn-colors: ("error" : $color-error,
     "accepted" : $color-accepted,
     "normal" : $color-normal);
 
-//Elemento botón general
+///Elemento botón general
 .btn {
     display: $display;
     text-align: $text-align;
     text-decoration: $text-vacio;
     border-radius: 1.8-$border-radius;
     padding: 1.5-$padding;
-    //Estilo para el efecto de cuando pase el ratón por encima
+    ///Estilo para el efecto de cuando pase el ratón por encima
     &:hover {box-shadow: 0.2rem 0.2rem $color-shadow;}
-    //Estilo al hacer click en el boton
+    ///Estilo al hacer click en el boton
     &:active {
         background-color: $color-reservado;
         color: $color-w;
     }
 }
 
-//Clase adicional que le da color
+///Clase adicional que le da color
 @each $k,
 $v in $btn-colors {
 
