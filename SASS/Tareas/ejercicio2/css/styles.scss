@@ -6,9 +6,12 @@ $dark-theme: true;
 @use "sass:list";
 
 /// Numeracion
+/// @group Numbers
 $num:1;
 
-/// colores generales
+
+/// Paleta de colores generales
+/// @group Colors 
 $color-background: #ccc;
 $color-baser: #333;
 $color-w:white;
@@ -21,15 +24,18 @@ $color-shadow: #888;
 $color-reservado: orange;
 $color-list: #aaa, #00f, orange, rgb(242, 255, 0), #0f0;
 
-///colores menu
+/// Codigo del menu
+/// @group Navbar
 $navbar-background-color: rgb(155,111,145);
 $navbar-color-hover: $color-background;
 
 ///colores del borde
+/// @group Borders
 $border-color: $color-baser;
 $border-style:solid;
 
 ///contenido de bordes y margenes
+/// @group Dimensions
 $border-radius: 1rem;
 $border-width: 0.1rem;
 $main-container-width:80%;
@@ -40,14 +46,17 @@ $padding: 1rem;
 $padding-2: 0.2rem;
 
 /// Tipo de textos
+/// @group Texts
 $text-align: center;
 $text-vacio: none;
 
 ///tipos de background
+/// @group Backgrounds
 $background-repeat: no-repeat ;
 $background-size: contain;
 
 /// Extras del ejercicio
+/// @group Extras
 $figure-width: 39.5%;
 $font-size: 0.8rem;
 $width: 100%;
@@ -58,7 +67,7 @@ $font-weight: bold;
 @mixin centrado {
     margin: 0px auto;
 }
-
+/// Estilo del body
 body{
     @include centrado;
     @if $ligh-theme == true{
@@ -73,6 +82,7 @@ body{
     }
 }
 
+/// Regla del bucle while
 @while $num < 6 {
     figure:nth-child(#{$num}){
         color: $color-b;
@@ -81,13 +91,14 @@ body{
     $num: $num + 1 ;
 }
 
+/// Regla del bucle for
 @for $i from 1 to 6 {
     li:nth-of-type(#{$i}){
         color: $color-b;
         color: list.nth($color-list, $i);
     }
 }
-
+/// Variable del map
 $mapa:(
     Espana:"Espana.png",
     Francia:"Francia.png",
@@ -95,6 +106,7 @@ $mapa:(
     Alemania:"Alemania.png"
 );
 
+/// Regla del bucle each
 @each $u, $v in $mapa{
     div.#{$u}{
         background-image: url("../img/#{$v}");
@@ -110,11 +122,13 @@ $mapa:(
     }
 }
 
+/// Estilo del contenedor principal
 .container{
     width: $main-container-width;
     margin: $margin;
 }
 
+/// Estilo de la barra de navegación
 nav{
     background-color: $navbar-background-color;
     padding: $padding-2;
@@ -140,12 +154,13 @@ nav{
     }
 }
 
+/// Estilo de la clase distancia
 .distancia {
     margin-left: 5+$margin-left;
 }
 
 /*Funciones prebias*/
-
+/// Estilo de la figura
 figure.card{
     border: $border-width #{$border-style} $border-color;
     border-radius: $border-radius;
@@ -153,17 +168,18 @@ figure.card{
     padding: $padding;
     width: $figure-width;
 }
+/// Estilo de la imagen
 img{
     border-radius: 2*$border-radius;
     width: $width;
 }
-
+/// Estilo del pie de foto
 figcaption{
     font-size: $font-size;
     margin: $margin-1;
     text-align: $text-align;
 }
-
+/// Mapa de colores para los botones
 $btn-colors: ("error" : $color-error,
     "warning" : $color-warning,
     "accepted" : $color-accepted,
