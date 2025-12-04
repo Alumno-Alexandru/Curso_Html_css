@@ -1,0 +1,827 @@
+//// @author VictorGB20
+/// 
+/// 
+/// 
+//// @description Colores
+
+$blanco: #F1F0EA;
+$negro: #000000;
+$gris: #597081;
+$gris-claro: #D9D9D9;
+$azul-oscuro: #112C50;
+$azul-claro: #31527e;
+$azul-brillante: #B9CADE;
+$dorado: #E3BE86;
+$dorado-oscuro: #d4aa77;
+$naranja: #C55A26;
+$naranja_oscuro: #b84d1f;
+
+
+//// @description Fuentes y tamaños
+
+$fuente-default: 'Neue Montreal', 'Arial', sans-serif;
+$fuente-p: 'Neue Montreal', sans-serif;
+$fuente-h1: 'Reckless Neue', serif;
+$tamano-500: 500;
+$tamano-400: 400;
+$tamano-desc: 14px;
+$tamano-a: 16px;
+$tamano-p: 18px;
+$tamano-med: 20px;
+$tamano-h2: 36px;
+
+
+//// @description margenes y espaciados
+
+$elemento-compl: 100%;
+$elemento-zero : 0;
+$elemento-auto: auto;
+$elemento-duo: 0 auto;
+$sin-modificacion: none;
+
+
+//// @description posiciones y alineamientos
+
+$pos-relativa: relative;
+$pos-grid: grid;
+$pos-flex: flex;
+$pos-column: column;
+$pos-espaciada: space-around;
+$pos-centro: center;
+$pos-inline: inline-flex;
+$pos-inicio: flex-start;
+$pos-bloque: block;
+$pos-rellenar: fit-content;
+$pos-separado: space-between;
+
+//// @description Estilos globales
+/// Generamos los estilos globales
+* {
+  margin: $elemento-zero;
+  padding: $elemento-zero;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $fuente-default;
+  background: $blanco;
+  color: $negro;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: $sin-modificacion;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+
+/// Estilos de la barra superior
+/// @description Empezamos con los estilos del header
+
+.hero {
+    background-image: url("../img/header-background.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: $azul-oscuro;
+    color: $blanco;
+    position: $pos-relativa;
+
+    nav{
+        padding: 20px 120px;
+        display: $pos-flex;
+        justify-content: $pos-separado;
+        align-items: $pos-centro;
+        margin: $elemento-duo;
+    }
+}
+
+.top-bar {
+    background: $azul-oscuro;
+    color: $blanco;
+    padding: 12px $elemento-zero;
+    font-size: $tamano-desc;
+    font-weight: $tamano-500;
+
+    a{
+        color: $blanco;
+        transition: color 0.3s ease;
+    }
+    a:hover{
+        color: $naranja;
+    }
+}
+
+.top-bar-content {
+    margin: $elemento-duo;
+    padding: 0 120px;
+    display: $pos-flex;
+    justify-content: $pos-separado;
+    align-items: $pos-centro;
+}
+
+
+.language-switcher {
+    display: $pos-flex;
+    gap: 8px;
+    align-items: $pos-centro;
+
+    a{
+        font-size: $tamano-desc;
+    }
+}
+
+
+.logo{
+    figure {
+        margin: $elemento-zero;
+    }
+    img{
+        height: 54px;
+    width: $elemento-auto;
+    }
+}
+
+.nav-links {
+
+    display: $pos-flex;
+    list-style: $sin-modificacion;
+    gap: 40px;
+
+    a{
+        color: $blanco;
+        font-weight: 700;
+        font-size: $tamano-a;
+        line-height: 19px;
+        transition: color 0.3s ease;
+    }
+    a:hover{
+        color: $naranja;
+    }
+}
+
+//// @Description Creamos estilo para el contenido
+/// 
+
+.hero-content {
+    margin: $elemento-duo;
+    padding: 80px 120px;
+    display: $pos-flex;
+    flex-direction: $pos-column;
+    gap: 24px;
+
+    h1{
+        font-family: $fuente-h1;
+        font-size: 55px;
+        font-weight: $tamano-500;
+        line-height: 66px;
+        color: $blanco;
+        max-width: 618px;
+    }
+    
+
+    p:first-of-type {
+        font-family: $fuente-p;
+        font-size: $tamano-p;
+        font-weight: $tamano-500;
+        text-transform: uppercase;
+        line-height: 22px;
+        color: $blanco;
+    }
+
+    p:last-of-type {
+        font-family: $fuente-p;
+        font-size: $tamano-p;
+        font-weight: $tamano-400;
+        line-height: 22px;
+        color: $blanco;
+        max-width: 483px;
+    }
+
+
+}
+
+.highlight {
+    font-style: italic;
+    font-weight: bold;
+    padding: 2px 4px;
+    color: $blanco;
+    font-weight: 700;
+}
+
+.hero-buttons {
+    display: $pos-flex;
+    gap: $tamano-med;
+    padding-top: $tamano-med;
+}
+
+//// @description Botones
+///
+.btn {
+    display: $pos-inline;
+    align-items: $pos-centro;
+    justify-content: $pos-centro;
+    padding: 15px 20px;
+    font-family: $fuente-p;
+    font-size: $tamano-desc;
+    font-weight: $tamano-500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    border-radius: 10px;
+    border: $sin-modificacion;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background: $dorado;
+    color: $negro;
+}
+
+.btn.primary:hover {
+    background: $dorado-oscuro;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background: $naranja;
+    color: $blanco;
+}
+
+.btn.secondary:hover {
+    background: $naranja_oscuro;
+    transform: translateY(-2px);
+}
+
+//// @description Empezamos con la seccion Sobre...
+/// 
+
+.about {
+    margin: $elemento-auto;
+    padding: 80px 120px;
+    display: $pos-flex;
+    gap: 60px;
+    align-items: $pos-inicio;
+
+    article {
+        flex: 1;
+    }
+
+    article h2 {
+        font-family: $fuente-h1;
+        font-size: $tamano-h2;
+        font-weight: $tamano-500;
+        line-height: 43px;
+        color: $negro;
+        margin-bottom: 30px;
+    }
+
+    article p {
+        font-family: $fuente-p;
+        font-size: $tamano-p;
+        font-weight: $tamano-400;
+        line-height: 25px;
+        color: $negro;
+        margin-bottom: 24px;
+    }
+
+    aside {
+        flex: 1;
+    }
+
+    img {
+        width: $elemento-compl;
+        height: $elemento-auto;
+        border-radius: 31px;
+        display: $pos-bloque;
+    }
+
+    .btn {
+        margin-top: 30px;
+    }
+
+}
+
+//// @description Empezamos con la seccion Servicios
+/// 
+
+.services {
+    background-image: url('../img/techo-cristal.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: $blanco;
+    padding: 100px 120px;
+    text-align: $pos-centro;
+    margin: $elemento-duo;
+
+    h3 {
+        font-family: $fuente-h1;
+        font-size: 52px;
+        font-weight: $tamano-500;
+        line-height: 62px;
+        margin-bottom: 30px;
+        color: $blanco;
+    }
+
+    p {
+        font-family: $fuente-h1;
+        font-size: $tamano-med;
+        font-weight: $tamano-500;
+        line-height: 24px;
+        margin-bottom: 40px;
+        max-width: 617px;
+        margin-left: $elemento-auto;
+        margin-right: $elemento-auto;
+        color: $blanco;
+    }
+}
+
+//// @description Empezamos con la clase Team
+/// 
+ 
+.team {
+    display: $pos-flex;
+    margin: $elemento-duo;
+    padding: 80px 120px; 
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+}
+
+.azulado{
+    border: 5px solid $azul-claro;
+    max-width: 5rem;
+    margin-bottom: 1rem;
+}
+
+.team-title h3 {
+    font-family: $fuente-h1;
+    font-size: 36px;
+    font-weight: $tamano-500;
+    line-height: 44px;
+    color: $negro;
+    margin-bottom: 60px;
+    max-width: 350px;
+    margin-right: 60px;
+}
+
+.team-content{
+    background: $azul-brillante;
+    border-radius: 25px;
+    padding: 40px;
+    font-family: $fuente-default;    
+}
+
+.team-members {
+    display: $pos-grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 2rem;
+    article {
+        display: $pos-centro;
+        flex-direction: $pos-column;
+        gap: 8px;
+    }
+    img {
+        width: $elemento-compl;
+        height: 306px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    h4 {
+        font-family: $fuente-h1;
+        font-size: $tamano-med;
+        font-weight: $tamano-500;
+        line-height: 24px;
+        color: $negro;
+        margin-top: 8px;
+    }
+    p {
+        font-family: $fuente-p;
+        font-size: $tamano-a;
+        font-weight: $tamano-400;
+        line-height: $tamano-med;
+        color: $negro;
+    }
+}
+
+/// @description Introducimos los testimonios
+/// 
+
+
+.testimonials {
+    background: $azul-oscuro;
+    color: $blanco;
+    padding: 80px 120px;
+    margin: $elemento-duo;
+
+    h3 {
+        font-family: $fuente-h1;
+        font-size: 36px;
+        font-weight: $tamano-500;
+        line-height: 43px;
+        color: $blanco;
+        margin-bottom: 60px;
+        max-width: 25rem;
+    }
+}
+
+.testimonials-container {
+    display: $pos-grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    blockquote {
+        background: $blanco;
+        color: $negro;
+        padding: 30px;
+        display: $pos-flex;
+        flex-direction: $pos-column;
+        justify-content: $pos-separado;
+        min-height: 324px;
+        p {
+            font-family: $fuente-h1;
+            font-size: $tamano-a;
+            font-weight: $tamano-400;
+            line-height: 25px;
+            margin-bottom: $tamano-med;
+        }
+        footer {
+            text-decoration: $sin-modificacion;
+            font-family: $fuente-h1;
+            font-size: $tamano-desc;
+            font-weight: $tamano-500;
+            color: $gris;
+        }
+    }
+}
+
+/// @description Iniciamos el css del formulario
+/// 
+
+
+.contact-form {
+    margin: $elemento-duo;
+    padding: 80px 120px;
+    
+    h3 {
+        font-family: $fuente-h1;
+        font-size: 36px;
+        font-weight: $tamano-500;
+        line-height: 43px;
+        color: $negro;
+        margin-bottom: $tamano-med;
+    }
+    p {
+        font-family: $fuente-p;
+        font-size: $tamano-p;
+        font-weight: $tamano-400;
+        line-height: 22px;
+        color: $negro;
+        margin-bottom: 40px;
+        max-width: 728px;
+    }
+}
+
+form {
+
+    display: $pos-grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $tamano-med;
+    margin-left: 6rem;
+    button {
+        grid-column: 2;
+        margin-top: $tamano-med;
+        width: $pos-rellenar;
+        background-color: $sin-modificacion;
+        border: 2px solid black;
+        border-radius: 2rem;
+        display: $pos-inline;
+        align-items: $pos-centro;
+        justify-content: $pos-centro;
+        padding: 15px 20px;
+        font-family: $fuente-p;
+        font-size: $tamano-desc;
+        font-weight: $tamano-500;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+}
+
+form input,
+form textarea {
+  grid-column: span 1;
+  padding: 15px;
+  background: $gris-claro;
+  border: $sin-modificacion;
+  font-family: $fuente-p;
+  font-size: $tamano-a;
+  resize: $sin-modificacion;
+}
+
+form textarea {
+  grid-column: span 2;
+  min-height: 148px;
+}
+
+//// @description empezamos con la seccion del mapa
+/// 
+
+
+.location {
+    display: $pos-flex;
+    justify-content: $pos-separado;
+    margin: $elemento-duo;
+    padding: 80px 120px;
+    h3 {
+        font-family: $fuente-h1;
+        font-size: 36px;
+        font-weight: $tamano-500;
+        line-height: 43px;
+        color: $negro;
+        margin-bottom: 30px;
+    }
+    p {
+        font-family: $fuente-p;
+        font-size: 24px;
+        font-weight: $tamano-400;
+        line-height: 35px;
+        color: $negro;
+        margin-bottom: 40px;
+    }
+    .map {
+        width: $elemento-compl;
+        height: 425px;
+        border-radius: 8px;
+        overflow: hidden;
+        iframe {
+            width: $elemento-compl;
+            height: $elemento-compl;
+            border: $sin-modificacion;
+        }
+    }
+}
+
+//// @description empezamos con el estilo del footer
+/// 
+
+
+footer {
+    background: $azul-oscuro;
+    color: $blanco;
+    padding: 60px 120px;
+    margin: $elemento-duo;
+    display: $pos-flex;
+    justify-content: $pos-espaciada;
+    .footer-info {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        a {
+            font-family: 'Neue Montreal', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #F1F0EA;
+            line-height: 22px;
+        }
+        a:hover {
+            color: #E3BE86;
+        }
+    }
+    .footer-nav,
+    .footer-logo,
+    .newsletter {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    h4 {
+        font-family: 'Neue Montreal', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: #F1F0EA;
+        line-height: 22px;
+    }
+    .footer-nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .footer-nav a,
+    .footer-logo a {
+        font-family: 'Neue Montreal', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #F1F0EA;
+        line-height: 22px;
+    }
+    .footer-nav a:hover,
+    .footer-logo a:hover {
+        color: #E3BE86;
+    }
+    .footer-logo{
+        h1 {
+            font-family: 'Reckless Neue', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: #F1F0EA;
+        }
+    }
+
+}
+
+.social-media {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+    a {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-right: 1rem;
+        background: rgba(245, 245, 245, 0.1);
+        border-radius: 50%;
+        color: #F1F0EA;
+        font-size: 0;
+        transition: background 0.3s ease;
+    }
+    a:hover {
+        background: #E3BE86;
+    }
+}
+
+.newsletter{
+    form {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+    input {
+        flex: 1;
+        padding-top: 10px 15px;
+        background: #D9D9D9;
+        border: none;
+        border-radius: none;
+        font-family: 'Neue Montreal', sans-serif;
+        font-size: 14px;
+        color: #597081;
+    }
+
+    button {
+        padding: 10px 20px;
+        background: transparent;
+        border: 1px solid #EDEDED;
+        color: #D9D9D9;
+        border-radius: 20px;
+        font-family: 'Neue Montreal', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    button:hover {
+        background: #E3BE86;
+        color: #000000;
+        border-color: #E3BE86;
+    }
+}
+
+$redes: (
+    maziul: "logo-maziul.svg",
+    facebook: "facebook.svg",
+    twitter: "twitter.svg",
+    instagram: "instagram.svg"
+);
+
+@each $u,$v in $redes {
+    a.#{$u}{
+        background-image: url("../img/#{$v}");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+
+//// @description Creamos el modo responsivo
+/// 
+
+
+@media (max-width: 1200px) {
+  body {
+    font-size: 14px;
+  }
+
+  .top-bar-content,
+  header.hero nav,
+  .hero-content,
+  .about,
+  .services,
+  .team,
+  .testimonials,
+  .contact-form,
+  .location,
+  footer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .team-members,
+  .testimonials-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar-content,
+  header.hero nav,
+  .hero-content,
+  .about,
+  .services,
+  .team,
+  .testimonials,
+  .contact-form,
+  .location,
+  footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  header.hero nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .about {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .services h3 {
+    font-size: 32px;
+  }
+
+  .team-members,
+  .testimonials-container {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form textarea,
+  form button {
+    grid-column: span 1;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+  footer{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .services h3,
+  .testimonials h3,
+  .contact-form h3,
+  .location h3 {
+    font-size:28px;
+    }
+}
