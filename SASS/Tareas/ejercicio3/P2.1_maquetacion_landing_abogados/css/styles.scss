@@ -2,7 +2,7 @@
 /// 
 //// @description Colores
 
-// Variables de colores
+/// Variables de colores
 $color-primario: #d4753e;
 $color-secundario: #1a3a52;
 $color-azul-oscuro: #0d2436;
@@ -18,7 +18,8 @@ $color-primario-hover: #c1653a;
 $color-button-iluminacion-hover: #d9b590;
 $color-overlay: rgba(26, 58, 82, 0.9);
 
-// Variables de tipografía
+/// Variables de tipografía
+$fuente-h1: 'Reckless Neue', serif;
 $font-main: 'Arial', sans-serif;
 $font-size-base: 1rem;
 $font-size-xall: 0.9rem;
@@ -32,7 +33,7 @@ $font-weight-semi-bold: 500;
 $font-weight-bold: 600;
 $font-weight-extra-bold: 700;
 
-// Variables de espaciado por dimensiones
+/// Variables de espaciado por dimensiones
 $spacing-xs: 0.5rem;
 $spacing-x: 1rem;
 $spacing-m: 1.5rem;
@@ -41,7 +42,7 @@ $spacing-xl: 3rem;
 $spacing-xxl: 4rem;
 $spacing-xxxl: 5rem;
 
-// Variables de layout
+/// Variables de layout
 $max-width: 1200px;
 $min-height-hero: 100vh;
 $hero-background-height: 60px;
@@ -54,14 +55,14 @@ $line-height-tight: 1.2;
 $line-height-relaxed: 1.8;
 $letter-spacing-m: 1px;
 
-// Variables de sombras
+/// Variables de sombras
 $shadow-iluminacion: 0 5px 20px rgba(0, 0, 0, 0.1);
 $shadow-medio: 0 10px 30px rgba(0, 0, 0, 0.1);
 
-// Variables de transición
+/// Variables de transición
 $transition-speed: 0.3s;
 
-// Variables de dimensiones
+/// Variables de dimensiones
 $border: 1px solid;
 $border-radius:50px;
 $language-switcher-margin: 60%;
@@ -76,7 +77,7 @@ $team-img-width: 100%;
 $team-member-card-height: auto;
 $form-height-l: auto;
 
-// Reset básico
+/// Reset básico
 * {
     margin: 0;
     padding: 0;
@@ -99,7 +100,7 @@ body {
    border-radius: $border-radius;
 }
 
-// Utilidades
+/// Utilidades
 .btn {
     display: inline-block;
     padding: $spacing-x $spacing-l;
@@ -131,7 +132,7 @@ body {
     }
 }
 
-// Header y Hero Section
+/// Header y Hero Section
 .hero {
     background: url('../assets/img/header-background.jpg') center/cover no-repeat; 
     min-height: $min-height-hero;
@@ -257,7 +258,7 @@ body {
     }
 }
 
-// seccion de about
+/// seccion de about
 .about {
     max-width: $max-width;
     margin: 0 auto;
@@ -299,7 +300,7 @@ body {
     }
 }
 
-// seccion de los servicios
+/// seccion de los servicios
 .services {
     background: url('../assets/img/techo-cristal.jpg') center/cover no-repeat; 
     color: $color-blanco;
@@ -332,7 +333,7 @@ body {
     }
 }
 
-// Seccion del equipo
+/// Seccion del equipo
 .team {
     max-width: $max-width;
     margin: 0 auto;
@@ -424,47 +425,55 @@ body {
     }
 }
 
-// Seccion de testimonios
+/// Seccion de testimonios
 .testimonials {
-    background-color: $color-azul-oscuro;
+    background: $color-secundario;
     color: $color-blanco;
-    padding: $spacing-xxxl $spacing-l;
-    text-align: center;
+    padding: 80px 120px;
+    margin: 0 auto;
 
     h3 {
-        font-size: $font-size-xtamano;
-        margin-bottom: $spacing-xl;
+        font-family: $fuente-h1;
+        font-size: 36px;
+        font-weight: $font-weight-semi-bold;
+        line-height: 43px;
+        color: $color-blanco;
+        margin-bottom: 60px;
+        max-width: 25rem;
     }
+}
 
-    .testimonials-container {
-        max-width: $max-width;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: $spacing-l;
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
 
-        blockquote {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: $spacing-l;
-            border-radius: $border-radius-m;
-            border-left: 4px solid $color-primario;
-
-            p {
-                font-size: $font-size-base;
-                line-height: $line-height-relaxed;
-                margin-bottom: $spacing-x;
-                font-style: italic;
-            }
-
-            footer {
-                font-weight: 600;
-                color: $color-primario;
-            }
+    blockquote {
+        background: $color-iluminacion-bg;
+        color: $color-text;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 324px;
+        p {
+            font-family: $fuente-h1;
+            font-size: 16px;
+            font-weight: $font-weight-normal;
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-decoration: none;
+            font-family: $fuente-h1;
+            font-size: 14px;
+            font-weight: $font-weight-semi-bold;
+            color: $color-text-iluminacion;
         }
     }
 }
 
-// Seccion de contacto
+/// Seccion de contacto
 .contact-form {
     background-color: $color-iluminacion-bg;
     padding: $spacing-xxxl $spacing-l;
@@ -557,7 +566,7 @@ body {
     }
 }
 
-// Seccion de ubicacion
+/// Seccion de ubicacion
 .location {
     background-color: $color-iluminacion-bg;
     padding: $spacing-xxxl $spacing-l;
@@ -610,7 +619,7 @@ body {
     }
 }
 
-// Footer
+/// Footer
 footer {
     background-color: $color-azul-oscuro;
     color: $color-blanco;
@@ -698,7 +707,23 @@ footer {
     }
 }
 
-// Responsive Design
+$imagenes: (
+    logo-maziul: "logo-maziul.svg",
+    facebook: "facebook.svg",
+    Twitter: "Twitter.svg",
+    instagram: "instagram.svg"
+);
+
+@each $u, $v in $imagenes {
+    a.#{$u} {
+        background-image: url("../assets/img/#{$v}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 20px;  
+    }
+}
+
+/// Responsive Design
 @media (max-width: 968px) {
     .hero {
         .hero-content {
