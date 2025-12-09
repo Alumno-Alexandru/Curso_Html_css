@@ -2,6 +2,8 @@
 
 ## [_Apartado de Html_](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/HTML_CSS)
 
+> Representacion de codigo `HTML`
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -231,20 +233,113 @@ body {
 
 ## [_Apartado de Sass_](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS)
 
-### Carpetas de _Sass_
+> Representacion de `SASS`
 
-### - [Representacion de Sass](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Inicio)
+![Ejemplo_de_proyecto](/UTILIDADES/img/Sass.png)
+
+### - [Ha prendizaje con ejemplos de Sass](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Inicio)
 
 #### [Ejemplo 1](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Inicio/ejemplo1)
 
+#### Variables :
+![Ejemplo_de_proyecto](/UTILIDADES/img/VarSass.png)
+
+#### Class o Id :
+![Ejemplo_de_proyecto](/UTILIDADES/img/ClassSass.png)
+
 #### [Ejemplo 2](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Inicio/ejemplo2)
 
+> Representacion de Ejemplo con un diseño creado en `Sass`
+
+![Ejemplo_de_proyecto](/UTILIDADES/img/Ejemplo2.png)
+
 #### [Ejemplo 3](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Inicio/ejemplo3)
+
+#### Archivo _atroot.scss : 
+```Html
+%btn{
+    border-radius: 2px;
+    color: #fff;
+    padding: 5px 0;
+    margin: 2px autor;
+    text-align: left;
+    width: 150px;;
+}
+
+.btn-error{
+    @extend %btn;
+    background-color: red;
+}
+
+.btn-ok{
+    @extend %btn;
+    background-color: green;
+}
+```
+
+#### Archivo _colors.scss :
+```Html
+$font_color:#00f;
+$background-color:#ddd;
+
+body{
+    color: $font_color;
+    background-color: $background-color;
+}
+```
+#### Archivo _layout.scss :
+```Html
+$top_maging: 0px;
+$row_padding: 20px;
+
+.container{
+    width: 80%;
+    margin: $top_maging auto;
+}
+
+.row{
+    padding: $row_padding ;
+}
+```
+#### Archivo _mensajes.scss :
+```Html
+$test: false;
+
+body {
+  @if $test {
+    @error "Mensaje de error";
+    @debug "Test tiene el siguiente valor: #{$test}";
+  } @else {
+    @warn "Mensaje de warning";
+  }
+}
+```
+#### Archivo main.scss :
+```Html
+// OR @iport "colors","layout";
+@import"colors";
+@import"layouts";
+@import"botones";
+@import"mesajes";
+@import"_atroot.scss";
+```
 
 ### - [Tareas de Sass](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Tareas)
 
 #### [Ejercicios 1](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Tareas/ejercicio1)
 
+> Este es el ejemplo 2 pero mas simple que el que esta ahi.
+
+![Ejemplo_de_proyecto](/UTILIDADES/img/ejer1.png)
+
 #### [Ejercicios 2](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Tareas/ejercicio2)
 
+> Uso de SassDoc :
+
+![Ejemplo_de_proyecto](/UTILIDADES/img/sassdoc.png)
+
 #### [Ejercicios 3](https://github.com/Alumno-Alexandru/Curso_Html_css/tree/564779398c160a1e2c4108669f579b39d3e966b7/SASS/Tareas/ejercicio3/P2.1_maquetacion_landing_abogados)
+
+> Esta es la imagen que hay que realizar con archivo `Sass` y `Html` como tarea 
+
+![Ejemplo_de_proyecto](/UTILIDADES/img/Tarea3.png)

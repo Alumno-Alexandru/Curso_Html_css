@@ -6,11 +6,9 @@ $link-visited:#00f;
 $link-active:#0f0;
 $link-hover:#f00;
 
-/*Elementos
-de la cabecera*/
-.header{
-    background-color: $header-background;
-}
+// interpolacion en selectores
+$button-type: "error";
+$btn-color:#f00;
 
 // Tamaños para los iconos
 $size : (40px, 80px, 160px);
@@ -22,9 +20,17 @@ $breakpoints: (
     "grande": 1024px
 );
 
-// interpolacion en selectores
-$button-type: "error";
-$btn-color:#f00;
+// Imagen de fondo 
+$fondo: "img/fondos/default.jpg";
+
+//Interpolacion en comentarios
+$autor:"Yo";
+
+/*Elementos
+de la cabecera*/
+.header{
+    background-color: $header-background;
+}
 
 .btn-#{$button-type}{
     background-color: $btn-color;
@@ -32,14 +38,9 @@ $btn-color:#f00;
 
 //Interpolacion en uso de funciones
 
-$fondo: "img/fondos/default.jpg";
-
 .container{
     background-image: url('#{$fondo}');
 }
-
-//Interpolacion en comentarios
-$autor:"Yo";
 
 /*
     Web desarrollada por #{$autor}
