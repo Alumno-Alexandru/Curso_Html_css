@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      animation: animacionColores 3s linear infinite;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes animacionColores {
+      0% {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      25% {
+        background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+      }
+      50% {
+        background: linear-gradient(135deg, #f093fb 0%, #4facfe 100%);
+      }
+      75% {
+        background: linear-gradient(135deg, #4facfe 0%, #667eea 100%);
+      }
+      100% {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+    }
+
+    use {
+      width: 150px;
+
+      /* Punto exacto de giro */
+      transform-origin: center center;
+
+      /* Animación */
+      animation: girar 6s linear infinite;
+    }
+
+    @keyframes girar {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(1000deg);
+      }
+    } 
+    
+    
+  </style>
+</head>
+<body>
+ 
+    <div style="display: flex;  justify-content:
+     center; align-items: center; gap: 100px;">
+
+    <svg width="200" height="200">
+    <use xlink:href="./plantilla.svg#Burger"></use>
+    </svg>
+
+    <svg width="200" height="200">
+    <use xlink:href="./plantilla.svg#star"></use>
+    </svg>
+
+    </div>
+
+    <div style="display: flex; justify-content:
+     center; align-items: center;">
+
+    <svg width="200" height="200">
+    <use xlink:href="./plantilla.svg#mario"></use>   
+    </svg>
+
+    </div>
+
+    <div style="display: flex;  justify-content:center; 
+    align-items: center; gap: 100px;">
+
+    <svg width="200" height="200">
+    <use xlink:href="./plantilla.svg#star"></use>
+    </svg>
+
+    <svg width="200" height="200">
+    <use xlink:href="./plantilla.svg#Burger"></use>
+    </svg>
+
+    </div>
+</body>
+</html>
