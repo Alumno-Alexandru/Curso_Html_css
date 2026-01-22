@@ -352,6 +352,12 @@
   .-bottom-4 {
     bottom: calc(var(--spacing) * -4);
   }
+  .-bottom-5 {
+    bottom: calc(var(--spacing) * -5);
+  }
+  .-bottom-7 {
+    bottom: calc(var(--spacing) * -7);
+  }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
@@ -2434,8 +2440,47 @@
     --tw-scale-y: 150%;
     scale: var(--tw-scale-x) var(--tw-scale-y);
   }
+  .-rotate-1 {
+    rotate: calc(1deg * -1);
+  }
+  .-rotate-5 {
+    rotate: calc(5deg * -1);
+  }
   .-rotate-6 {
     rotate: calc(6deg * -1);
+  }
+  .-rotate-10 {
+    rotate: calc(10deg * -1);
+  }
+  .-rotate-11 {
+    rotate: calc(11deg * -1);
+  }
+  .-rotate-12 {
+    rotate: calc(12deg * -1);
+  }
+  .-rotate-43 {
+    rotate: calc(43deg * -1);
+  }
+  .-rotate-100 {
+    rotate: calc(100deg * -1);
+  }
+  .-rotate-101 {
+    rotate: calc(101deg * -1);
+  }
+  .-rotate-110 {
+    rotate: calc(110deg * -1);
+  }
+  .-rotate-111 {
+    rotate: calc(111deg * -1);
+  }
+  .-rotate-115 {
+    rotate: calc(115deg * -1);
+  }
+  .-rotate-120 {
+    rotate: calc(120deg * -1);
+  }
+  .-rotate-126 {
+    rotate: calc(126deg * -1);
   }
   .rotate-0 {
     rotate: 0deg;
